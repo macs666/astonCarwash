@@ -8,7 +8,7 @@ module.exports = function(app) {
         var type = req.body.carType 
         var html = '<h1>Carwash schedule</h1><br>'+'name :'+name+'<br>'+'email :'+email+'<br>'+'city :'+city+'<br>'+'car type :'+type
         app.models.Email.send({
-            to: 'muhammed.azhar@eygert.com',//'astoncarwash@gmail.com
+            to: 'astoncarwash@gmail.com',
             from: 'eygerttechnologies@gmail.com',
             subject: 'Car wash schedule request',
             text: 'User requested a car wash schedule at astoncarwash.in',
