@@ -2,11 +2,14 @@
 module.exports = function(app) {
     var router = app.loopback.Router();
     router.post('/api/sendMail', function(req, res) {
-        var name = req.body.name
-        var email = req.body.email 
-        var city = req.body.city 
-        var type = req.body.carType 
-        var html = '<h1>Carwash schedule</h1><br>'+'name :'+name+'<br>'+'email :'+email+'<br>'+'city :'+city+'<br>'+'car type :'+type
+
+        var name = req.body.name ? '<br>'+'name :'+req.body.name : ''
+        var email = req.body.email ? '<br>'+'email :'+req.body.email : ''
+        var phone = req.body.phone ? '<br>'+'phone :'+req.body.phone : ''
+        var city = req.body.city ? '<br>'+'city :'+req.body.city : ''
+        var type = req.body.carType ? '<br>'+'car type :'+req.body.carType : ''
+        var html = '<h1>Carwash schedule</h1>'+ name + email + phone + city + type
+
         app.models.Email.send({
             to: 'astoncarwash@gmail.com',
             from: 'eygerttechnologies@gmail.com',
